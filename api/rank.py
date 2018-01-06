@@ -57,13 +57,14 @@ def annotate_upjong_info(cmdText='menu_6_1'):
 
 
 def get_rank_table():
-    rank_by_upjong = annotate_upjong_info('menu_6_1')
-    rank_by_index = annotate_upjong_info('menu_6_2')
-    rank_by_upjong.set_index(['업종코드', 'GICODE'], inplace=True)
-    rank_by_index.set_index(['업종코드', 'GICODE'], inplace=True)
-    rest_columns = sorted(set(rank_by_index.columns) - set(rank_by_upjong.columns))
-    rank_by_index = rank_by_index[rest_columns]
-    return pd.merge(rank_by_upjong, rank_by_index, left_index=True, right_index=True)
+    print('get_rank_table')
+#     rank_by_upjong = annotate_upjong_info('menu_6_1')
+#     rank_by_index = annotate_upjong_info('menu_6_2')
+#     rank_by_upjong.set_index(['업종코드', 'GICODE'], inplace=True)
+#     rank_by_index.set_index(['업종코드', 'GICODE'], inplace=True)
+#     rest_columns = sorted(set(rank_by_index.columns) - set(rank_by_upjong.columns))
+#     rank_by_index = rank_by_index[rest_columns]
+#     return pd.merge(rank_by_upjong, rank_by_index, left_index=True, right_index=True)
 
 
 def save(df, prefix='Ranking Analytics'):
