@@ -42,9 +42,7 @@ def _get_rank_analytics(upjong_cd, upjong_nm, cmdText='menu_6_1'):
         'IN_MARKET_GB': ''
     }
     r = requests.get(url, params=params)
-    print(r.url)
     soup = BeautifulSoup(r.content, 'html.parser')
-    print(soup)
     df = pd.DataFrame(r.json())
     df['업종명'] = upjong_nm
     df['업종코드'] = upjong_cd
@@ -56,7 +54,7 @@ def annotate_upjong_info(cmdText='menu_6_1', max_worker=None):
     dfs = []
     max_worker = max_worker or MAX_WORKERS
     workers = min(max_worker, len(codemap))
-    print('workers:', workers)
+    print('Workers:', workers)
     with ThreadPoolExecutor(workers) as executor:
         todo_list = []
         for cdmap in codemap:
