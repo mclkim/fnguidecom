@@ -25,6 +25,5 @@ def main():
     else:
         save(df_rank, output_path)
 
-
 if __name__ == '__main__':
 	main()
