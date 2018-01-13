@@ -42,7 +42,9 @@ def _get_rank_analytics(upjong_cd, upjong_nm, cmdText='menu_6_1'):
         'IN_MARKET_GB': ''
     }
     r = requests.get(url, params=params)
+    print(r.url)
     soup = BeautifulSoup(r.content, 'html.parser')
+    print(soup)
     df = pd.DataFrame(r.json())
     df['업종명'] = upjong_nm
     df['업종코드'] = upjong_cd
@@ -96,4 +98,7 @@ def save(df, to='.', prefix='Ranking Analytics'):
     path = os.path.join(to, fname)
     print('saving to {}...'.format(path))
     df.to_excel(path)
+
+annotate_upjong_info()
+
 
