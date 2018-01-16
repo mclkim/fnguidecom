@@ -97,6 +97,4 @@ def save(df, to='.', prefix='Ranking Analytics'):
     print('saving to {}...'.format(path))
     df.to_excel(path)
 
-annotate_upjong_info()
-
 
